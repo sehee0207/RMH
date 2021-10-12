@@ -20,7 +20,8 @@ var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 searchPlaces();
 
 // 키워드 검색을 요청하는 함수입니다
-function searchPlaces(search) {
+function searchPlaces() {
+
     var keyword = document.getElementById('keyword').value;
 
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
@@ -128,8 +129,8 @@ function getListItem(index, places) {
     } else {
         itemStr += '    <span>' +  places.address_name  + '</span>'; 
     }
-                 
-      itemStr += '  <span class="tel">' + places.phone  + '</span>' +
+                
+    itemStr += '  <span class="tel">' + places.phone  + '</span>' +
                 '</div>';           
 
     el.innerHTML = itemStr;
@@ -207,7 +208,7 @@ function displayInfowindow(marker, title) {
     infowindow.open(map, marker);
 }
 
- // 검색결과 목록의 자식 Element를 제거하는 함수입니다
+// 검색결과 목록의 자식 Element를 제거하는 함수입니다
 function removeAllChildNods(el) {   
     while (el.hasChildNodes()) {
         el.removeChild (el.lastChild);
