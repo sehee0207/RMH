@@ -123,12 +123,12 @@ function getListItem(index, places) {
                 '<div class="info">' +
                 '   <h5>' + places.place_name + '</h5>';
 
-    if (places.road_address_name) {
-        itemStr += '    <span>' + places.road_address_name + '</span>' +
-                    '   <span class="jibun gray">' +  places.address_name  + '</span>';
-    } else {
-        itemStr += '    <span>' +  places.address_name  + '</span>'; 
-    }
+                // if (places.road_address_name) {
+                //     itemStr += '    <span>' + places.road_address_name + '</span>' +
+                //                 '   <span class="jibun gray">' +  places.address_name  + '</span>';
+                // } else {
+                //     itemStr += '    <span>' +  places.address_name  + '</span>'; 
+                // }
                 
     itemStr += '  <span class="tel">' + places.phone  + '</span>' +
                 '</div>';           
@@ -168,7 +168,7 @@ function removeMarker() {
     markers = [];
 }
 
-// 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
+//검색결과 목록 하단에 페이지번호를 표시는 함수입니다
 function displayPagination(pagination) {
     var paginationEl = document.getElementById('pagination'),
         fragment = document.createDocumentFragment(),
