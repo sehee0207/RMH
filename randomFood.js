@@ -16,6 +16,6 @@ function random() {
 document.getElementById("random").addEventListener("click", () => {
     const selectedMenu = random();
     document.querySelector("h3").innerText = "오늘의 메뉴는 " + selectedMenu;
-    document.getElementById("keyword").value = selectedMenu;
+    document.getElementById("keyword").value = selectedMenu + " 맛집";
     document.getElementById("search").click();
 })

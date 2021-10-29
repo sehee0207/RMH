@@ -121,17 +121,22 @@ function getListItem(index, places) {
     var el = document.createElement('li'),
     itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
                 '<div class="info">' +
-                '   <h5>' + places.place_name + '</h5>';
+                '   <h4>' + places.place_name + '</h4>';
 
-                // if (places.road_address_name) {
-                //     itemStr += '    <span>' + places.road_address_name + '</span>' +
-                //                 '   <span class="jibun gray">' +  places.address_name  + '</span>';
-                // } else {
-                //     itemStr += '    <span>' +  places.address_name  + '</span>'; 
-                // }
+                if (places.road_address_name) {
+                    itemStr += '    <span>' + places.road_address_name + '</span>' +
+                                '   <span class="jibun gray">' +  places.address_name  + '</span>' + '<br>';
+                } else {
+                    itemStr += '    <span>' +  places.address_name  + '</span>'; 
+                }
                 
-    itemStr += '  <span class="tel">' + places.phone  + '</span>' +
-                '</div>';           
+                if(places.phone){
+                    itemStr += '  <span class="tel">' + places.phone  + '</span>' +
+                '</div>';
+                }
+                else{
+                    itemStr += '* 전화번호를 찾을 수 없습니다.'          
+                }
 
     el.innerHTML = itemStr;
     el.className = 'item';
