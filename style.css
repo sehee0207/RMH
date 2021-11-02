@@ -11,29 +11,36 @@
 }
 
 .map_wrap {
-    position:relative;
-    width:1200px;
-    height:500px;
-    padding: 8px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 420px;
+    position: absolute;
+    overflow: hidden;
 }
 
 .nav_wrap {
     width:200px;
     height:300px;
+    
 }
 
 #menu_wrap {
     top:0;
     left:0;
     bottom:0;
-    height:550px;
+    height:800px;
     width:400px;
     padding:5px;
     overflow-y:auto;
-    background: rgba(255, 255, 255, 0.7);
-    z-index: 1;
+    /* background: rgba(255, 255, 255, 0.7); */
+    background-color: #BDCEBE;
+    z-index: 25;
     font-size:12px;
     border-radius: 10px;
+    position: relative;
+    float: left;
+    
 }
 
 .bg_white {
