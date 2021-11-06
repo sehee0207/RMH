@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
     <meta charset="utf-8">
-    <title>키워드로 장소검색하고 목록으로 표출하기</title>
+    <title>Restaurant in My Hand - 내 손안에 맛집</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     
 </head>
@@ -13,17 +13,19 @@
     </div>
     <header>
         <div class="header_wrap">
-            <h3>오늘의 메뉴는 <p id="menu"></p></h3>
-            <button id="random">메뉴를 정해보세요!</button>
-            
+            <div class="title">
+                <h4>Restaurant in My Hand</h4>
+                <button id="setLocation">위치 재설정</button>
+            </div>
+
+            <div class="menu-select">
+                <h3>오늘의 메뉴는 <p id="menu"></p></h3>
+                <button id="random">메뉴를 정해보세요!</button>
+            </div>
 
             <div class="option">
-                <div>
-                        <input type="text" value="숙대 맛집" id="keyword" size="15"> 
-                        <button id="search">검색하기</button> 
-
-                    <button id="setLocation">위치 재설정</button>
-                </div>
+                <input type="text" placeholder="입력" id="keyword" size="15"> 
+                <button id="search"><img id="search-icon" src="./img/search-icon-light-grey.svg" height="36px" width="36px"></button> 
             </div>
         </div>
     </header>
