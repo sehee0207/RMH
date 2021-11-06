@@ -10,30 +10,30 @@
 <body>
 
     <header>
-        <div>
+        <div class="header_wrap">
             <h3>오늘의 메뉴는 <p id="menu"></p></h3>
             <button id="random">메뉴를 정해보세요!</button>
+
+            <div class="option">
+                <div>
+                    <form onsubmit="searchPlaces(); return false;">
+                        <input type="text" value="숙대 맛집" id="keyword" size="15"> 
+                        <button type="submit"  id="search">검색하기</button> 
+                    </form>
+                </div>
+            </div>
         </div>
     </header>
 
     <section>
         <div id="nav_wrap">
-        <div class="option">
-            <div>
-                <form onsubmit="searchPlaces(); return false;">
-                    <input type="text" value="숙대 맛집" id="keyword" size="15"> 
-                    <button type="submit"  id="search">검색하기</button> 
-                </form>
-            </div>
-        </div>
-        
-        <div id="menu_wrap" class="bg_white">
-            <div id="list">
-                <ul id="placesList"></ul>
+            <div id="menu_wrap" class="bg_white">
+                <div id="list">
+                    <ul id="placesList"></ul>
                 </div>
             </div>
-            
-            <div id="pagination"></div>
+                
+                <div id="pagination"></div>
         </div>
 
         <div class="map_wrap">
