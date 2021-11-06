@@ -119,3 +119,25 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+#geolocation_popup {
+    position: fixed;
+    z-index: 10;
+    display:block;
+    height: 60px;
+    width:100%;
+    top: -100px;
+    background-color: lightgreen;
+    text-align: center;
+    transition: top 1.5s;
+}
+
+#geolocation_popup.error {
+    background-color: orangered;
+    top: 0px;
+}
+#geolocation_popup.success {
+    background-color: lightgreen;
+    top: 0px;
+}
+
