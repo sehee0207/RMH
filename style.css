@@ -4,7 +4,7 @@ body{
     height: 100vh;
 }
 
-h3, h4, h5{
+h3, h4{
     margin: 0;
 }
 
@@ -63,18 +63,19 @@ h3, h4, h5{
 }
 
 ul {
-    padding-inline-start: 20px;
+    padding-inline-start: 2em;
 }
 
 #menu_wrap {
     top:0;
     left:0;
-    height: 500px;
-    padding: 5px;
+    height: 50em;
+    width: 33em;
+    padding: 0.3em;
     margin: 20px 5px;
     overflow-y:auto;
     z-index: 25;
-    font-size:12px;
+    font-size: 12px;
     position: relative;
     float: left;
     padding-bottom:50px;
@@ -98,7 +99,7 @@ ul {
 .option{
     display: flex;
     align-items: center;
-    height: 46px;
+    height: 3em;
     width: 370px;
     border-radius: 3px;
     top: 0;
