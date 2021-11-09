@@ -27,10 +27,7 @@ function getLocation() {
         userLocation.latitude = position.coords.latitude;
         userLocation.longitude = position.coords.longitude;
         console.log(userLocation);
-        var myLocation = new kakao.maps.Marker({
-            map: map,
-            position: new kakao.maps.LatLng(33.450701, 126.570667)
-        });
+        addMyLocation(new kakao.maps.LatLng(position.coords.latitude, position.coords.longitude));
         popup.classList.toggle('success');
         setTimeout(() => {
             popup.classList.toggle('success');

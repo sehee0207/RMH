@@ -18,7 +18,6 @@ var ps = new kakao.maps.services.Places();
 var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
 // 키워드로 장소를 검색합니다
-searchPlaces();
 
 // 키워드 검색을 요청하는 함수입니다
 function searchPlaces() {
@@ -165,6 +164,23 @@ function addMarker(position, idx, title) {
 
     marker.setMap(map); // 지도 위에 마커를 표출합니다
     markers.push(marker);  // 배열에 생성된 마커를 추가합니다
+
+    return marker;
+}
+
+function addMyLocation(position) {
+    var imgSrc = "http://assets.stickpng.com/thumbs/5888925dbc2fc2ef3a1860ad.png",
+        imgSize = new kakao.maps.Size(36,37),
+        imgOptions = {
+            offset: new kakao.maps.Point(13, 37)
+        }
+        markerImage = new kakao.maps.MarkerImage(imgSrc,imgSize, imgOptions),
+            marker = new kakao.maps.Marker({
+                position: position,
+                image: markerImage
+            });
+    marker.setMap(map);
+    markers.push(marker);
 
     return marker;
 }
