@@ -1,6 +1,7 @@
 // 마커를 담을 배열입니다
 document.querySelector("#search").addEventListener("click", searchPlaces);
 var markers = [];
+var me = [];
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
@@ -199,7 +200,7 @@ function addMarker(position, idx, title) {
 }
 
 function addMyLocation(position) {
-    var imgSrc = "http://assets.stickpng.com/thumbs/5888925dbc2fc2ef3a1860ad.png",
+    var imgSrc = "./img/map-marker.png",
         imgSize = new kakao.maps.Size(36,37),
         imgOptions = {
             offset: new kakao.maps.Point(13, 37)
@@ -210,7 +211,7 @@ function addMyLocation(position) {
                 image: markerImage
             });
     marker.setMap(map);
-    markers.push(marker);
+    me.push(marker);
 
     return marker;
 }
