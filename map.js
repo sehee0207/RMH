@@ -31,7 +31,7 @@ function searchPlaces() {
         // alert('키워드를 입력해주세요!');
         status.textContent = "키워드를 입력해주세요."
         popup.classList.toggle('error');
-        popup.style.backgroundColor = "orangered";
+        popup.style.backgroundColor = "ffe2b6";
         setTimeout(() => {
             popup.classList.toggle('error');
         }, 2500)
@@ -64,7 +64,7 @@ function placesSearchCB(data, status, pagination) {
         // alert('검색 결과가 존재하지 않습니다.');
         statusDiv.textContent = "검색 결과가 존재하지 않습니다."
         popup.classList.toggle('error');
-        popup.style.backgroundColor = "#ffb6b6";
+        popup.style.backgroundColor = "#ffe2b6";
         setTimeout(() => {
             popup.classList.toggle('error');
         }, 2500)
@@ -75,7 +75,7 @@ function placesSearchCB(data, status, pagination) {
         // alert('검색 결과 중 오류가 발생했습니다.');
         statusDiv.textContent = "검색 결과 중 오류가 발생했습니다."
         popup.classList.toggle('error');
-        popup.style.backgroundColor = "#ffb6b6";
+        popup.style.backgroundColor = "#ffe2b6";
         setTimeout(() => {
             popup.classList.toggle('error');
         }, 2500)
