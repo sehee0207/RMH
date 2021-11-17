@@ -21,11 +21,20 @@ var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
 // 키워드 검색을 요청하는 함수입니다
 function searchPlaces() {
+    const status = document.querySelector("#status");
+    const popup = document.querySelector("#geolocation_popup");
 
     var keyword = document.getElementById('keyword').value;
 
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
-        alert('키워드를 입력해주세요!');
+        // alert('키워드를 입력해주세요!');
+        status.textContent = "키워드를 입력해주세요."
+        popup.classList.toggle('error');
+        popup.style.backgroundColor = "orangered";
+        setTimeout(() => {
+            popup.classList.toggle('error');
+        }, 2500)
+
         return false;
     }
 
@@ -38,6 +47,8 @@ function searchPlaces() {
 
 // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
 function placesSearchCB(data, status, pagination) {
+    const statusDiv = document.querySelector("#status");
+    const popup = document.querySelector("#geolocation_popup");
     if (status === kakao.maps.services.Status.OK) {
 
         // 정상적으로 검색이 완료됐으면
@@ -49,12 +60,24 @@ function placesSearchCB(data, status, pagination) {
 
     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
-        alert('검색 결과가 존재하지 않습니다.');
+        // alert('검색 결과가 존재하지 않습니다.');
+        statusDiv.textContent = "검색 결과가 존재하지 않습니다."
+        popup.classList.toggle('error');
+        popup.style.backgroundColor = "orangered";
+        setTimeout(() => {
+            popup.classList.toggle('error');
+        }, 2500)
         return;
 
     } else if (status === kakao.maps.services.Status.ERROR) {
 
-        alert('검색 결과 중 오류가 발생했습니다.');
+        // alert('검색 결과 중 오류가 발생했습니다.');
+        statusDiv.textContent = "검색 결과 중 오류가 발생했습니다."
+        popup.classList.toggle('error');
+        popup.style.backgroundColor = "orangered";
+        setTimeout(() => {
+            popup.classList.toggle('error');
+        }, 2500)
         return;
 
     }
@@ -89,7 +112,7 @@ function displayPlaces(places) {
         // 마커와 검색결과 항목에 mouseover 했을때
         // 해당 장소에 인포윈도우에 장소명을 표시합니다
         // mouseout 했을 때는 인포윈도우를 닫습니다
-        (function(marker, title) {
+        (function(marker, title, y, x) {
             kakao.maps.event.addListener(marker, 'mouseover', function() {
                 displayInfowindow(marker, title);
             });
@@ -105,17 +128,22 @@ function displayPlaces(places) {
             itemEl.onmouseout =  function () {
                 infowindow.close();
             };
-        })(marker, places[i].place_name);
+
+            itemEl.onclick = function () {
+                map.setCenter(new kakao.maps.LatLng(y,x));
+            }
+        })(marker, places[i].place_name, places[i].y, places[i].x);
 
         fragment.appendChild(itemEl);
     }
-
+    addMyLocation(new kakao.maps.LatLng(userLocation.latitude, userLocation.longitude));
     // 검색결과 항목들을 검색결과 목록 Elemnet에 추가합니다
     listEl.appendChild(fragment);
     menuEl.scrollTop = 0;
 
     // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
     map.setBounds(bounds);
+    map.setCenter(new kakao.maps.LatLng(userLocation.latitude, userLocation.longitude));
 }
 
 // 검색결과 항목을 Element로 반환하는 함수입니다
@@ -164,6 +192,8 @@ function addMarker(position, idx, title) {
 
     marker.setMap(map); // 지도 위에 마커를 표출합니다
     markers.push(marker);  // 배열에 생성된 마커를 추가합니다
+
+    
 
     return marker;
 }
