@@ -15,7 +15,7 @@ function getLocation() {
     function error() {
         status.textContent = "위치를 불러오는 것을 실패했습니다."
         popup.classList.toggle('error');
-        popup.style.backgroundColor = "orangered";
+        popup.style.backgroundColor = "#ffb6b6";
         setTimeout(() => {
             popup.classList.toggle('error');
         }, 2500)
@@ -30,7 +30,7 @@ function getLocation() {
         console.log(userLocation);
         addMyLocation(new kakao.maps.LatLng(position.coords.latitude, position.coords.longitude));
         popup.classList.toggle('success');
-        popup.style.backgroundColor = "lightgreen";
+        popup.style.backgroundColor = "#d8b6ff";
         setTimeout(() => {
             popup.classList.toggle('success');
         }, 2500)
@@ -39,7 +39,7 @@ function getLocation() {
     if (!navigator.geolocation) {
         status.textContent = "이 브라우저는 위치기반 서비스를 제공하지 않습니다."
         popup.classList.toggle('error');
-        popup.style.backgroundColor = "orangered";
+        popup.style.backgroundColor = "#ffb6b6";
         setTimeout(() => {
             popup.classList.toggle('error');
         }, 2500)
