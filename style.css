@@ -210,3 +210,11 @@ body {
     top: 0px;
 }
 
+li {
+    padding: 5px;
+}
+
+li:hover{ 
+    box-shadow: 0 0 0 2px rgb(63, 194, 31) inset; 
+}
+
