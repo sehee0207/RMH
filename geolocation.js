@@ -28,7 +28,9 @@ function getLocation() {
         userLocation.longitude = position.coords.longitude;
         addMyLocation(new kakao.maps.LatLng(position.coords.latitude, position.coords.longitude));
         popup.classList.toggle('success');
-        popup.style.backgroundColor = "#d8b6ff";
+        popup.style.backgroundColor = 
+        
+        "#d8b6ff";
         setTimeout(() => {
             popup.classList.toggle('success');
         }, 2500)
