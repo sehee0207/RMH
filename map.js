@@ -63,6 +63,9 @@ function placesSearchCB(data, status, pagination) {
 
         // alert('검색 결과가 존재하지 않습니다.');
         statusDiv.textContent = "검색 결과가 존재하지 않습니다."
+        var listEl = document.getElementById('placesList'); 
+        removeAllChildNods(listEl);
+        removeMarker();
         popup.classList.toggle('error');
         popup.style.backgroundColor = "#ffe2b6";
         setTimeout(() => {
@@ -74,6 +77,9 @@ function placesSearchCB(data, status, pagination) {
 
         // alert('검색 결과 중 오류가 발생했습니다.');
         statusDiv.textContent = "검색 결과 중 오류가 발생했습니다."
+        var listEl = document.getElementById('placesList'); 
+        removeAllChildNods(listEl);
+        removeMarker();
         popup.classList.toggle('error');
         popup.style.backgroundColor = "#ffe2b6";
         setTimeout(() => {

@@ -24,10 +24,8 @@ function getLocation() {
     function success(position) {
         status.textContent = "현재 위치를 불러왔습니다. 실제 위치와 다를 수 있습니다."
         map.setCenter(new kakao.maps.LatLng(position.coords.latitude, position.coords.longitude))
-        console.log(`https://www.openstreetmap.org/#map=18/${position.coords.latitude}/${position.coords.longitude}`)
         userLocation.latitude = position.coords.latitude;
         userLocation.longitude = position.coords.longitude;
-        console.log(userLocation);
         addMyLocation(new kakao.maps.LatLng(position.coords.latitude, position.coords.longitude));
         popup.classList.toggle('success');
         popup.style.backgroundColor = "#d8b6ff";
