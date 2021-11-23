@@ -206,7 +206,7 @@ function addMarker(position, idx, title) {
 }
 
 function addMyLocation(position) {
-    var imgSrc = "./img/map-marker.png",
+    var imgSrc = "./img/location-pin.png",
         imgSize = new kakao.maps.Size(36,37),
         imgOptions = {
             offset: new kakao.maps.Point(13, 37)
