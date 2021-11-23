@@ -62,6 +62,7 @@ function placesSearchCB(data, status, pagination) {
     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
         // alert('검색 결과가 존재하지 않습니다.');
+        var paginationEl = document.getElementById('pagination');
         statusDiv.textContent = "검색 결과가 존재하지 않습니다."
         var listEl = document.getElementById('placesList'); 
         removeAllChildNods(listEl);
@@ -70,12 +71,16 @@ function placesSearchCB(data, status, pagination) {
         popup.style.backgroundColor = "#ffe2b6";
         setTimeout(() => {
             popup.classList.toggle('error');
-        }, 2500)
+        }, 2500);
+        while (paginationEl.hasChildNodes()) {
+            paginationEl.removeChild (paginationEl.lastChild);
+        }
         return;
 
     } else if (status === kakao.maps.services.Status.ERROR) {
 
         // alert('검색 결과 중 오류가 발생했습니다.');
+        var paginationEl = document.getElementById('pagination');
         statusDiv.textContent = "검색 결과 중 오류가 발생했습니다."
         var listEl = document.getElementById('placesList'); 
         removeAllChildNods(listEl);
@@ -85,6 +90,9 @@ function placesSearchCB(data, status, pagination) {
         setTimeout(() => {
             popup.classList.toggle('error');
         }, 2500)
+        while (paginationEl.hasChildNodes()) {
+            paginationEl.removeChild (paginationEl.lastChild);
+        }
         return;
 
     }
