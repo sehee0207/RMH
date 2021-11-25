@@ -284,4 +284,3 @@ function removeAllChildNods(el) {
         el.removeChild (el.lastChild);
     }
 }
-// 김세희 병신
