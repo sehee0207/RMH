@@ -19,3 +19,5 @@ document.getElementById("random").addEventListener("click", () => {
     document.getElementById("keyword").value = selectedMenu + " 맛집";
     document.getElementById("search").click();
 })
+
+
