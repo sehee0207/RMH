@@ -67,6 +67,10 @@ ul {
     padding-inline-start: 2em;
 }
 
+button {
+    outline: 0;
+}
+
 #menu_wrap {
     top:0;
     left:0;
@@ -99,8 +103,8 @@ ul {
 .option{
     display: flex;
     align-items: center;
-    height: 3em;
-    width: 370px;
+    /* height: 3em; */
+    width: 375px;
     border-radius: 5px;
     top: 0;
     left: 0;
@@ -124,7 +128,7 @@ ul {
     float: left;
     padding: 0;
     border: 0 none;
-    border-left: 2px solid grey;
+    border-left: 2px solid #a0a0a5;
     margin: 5px 0;
     margin-top: 15px;
     margin-bottom: 15px;
