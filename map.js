@@ -3,6 +3,10 @@ document.querySelector("#search").addEventListener("click", searchPlaces);
 var markers = [];
 var me = [];
 
+var distances = [];
+
+var placeLine;
+
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
         center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
@@ -26,6 +30,10 @@ function searchPlaces() {
     const popup = document.querySelector("#geolocation_popup");
 
     var keyword = document.getElementById('keyword').value;
+
+    if(!keyword.includes("맛집")){
+        keyword += " 맛집";
+    }
 
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
         // alert('키워드를 입력해주세요!');
@@ -114,7 +122,17 @@ function displayPlaces(places) {
     removeMarker();
     
     for ( var i=0; i<places.length; i++ ) {
-
+        var clickLine = new kakao.maps.Polyline({
+            map: map, // 선을 표시할 지도입니다 
+            path: [new kakao.maps.LatLng(userLocation.latitude, userLocation.longitude), placePosition], // 선을 구성하는 좌표 배열입니다 클릭한 위치를 넣어줍니다
+            strokeWeight: 3, // 선의 두께입니다 
+            strokeColor: '#db4040', // 선의 색깔입니다
+            strokeOpacity: 0, // 선의 불투명도입니다 0에서 1 사이값이며 0에 가까울수록 투명합니다
+            strokeStyle: 'solid' // 선의 스타일입니다
+        });
+        var distance = Math.round(clickLine.getLength());
+        places[i].distance = distance;
+        
         // 마커를 생성하고 지도에 표시합니다
         var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
             marker = addMarker(placePosition, i), 
@@ -123,6 +141,8 @@ function displayPlaces(places) {
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
         // LatLngBounds 객체에 좌표를 추가합니다
         bounds.extend(placePosition);
+
+        
 
         // 마커와 검색결과 항목에 mouseover 했을때
         // 해당 장소에 인포윈도우에 장소명을 표시합니다
@@ -177,11 +197,11 @@ function getListItem(index, places) {
                 }
                 
                 if(places.phone){
-                    itemStr += '  <span class="tel">' + places.phone  + '</span>' +
+                    itemStr += '  <span class="tel">' + places.phone  + '</span>' + places.distance +
                 '</div>';
                 }
                 else{
-                    itemStr += '* 전화번호를 찾을 수 없습니다.'          
+                    itemStr = '* 전화번호를 찾을 수 없습니다.' + places.distance;      
                 }
 
     el.innerHTML = itemStr;
