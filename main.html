@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Restaurant in My Hand - 내 손안에 맛집</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
     <link rel="icon" href="./img/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,20 +64,20 @@
             }
         }
 
-        var input = document.querySelector('.search-form');
-        var search = document.querySelector('input')
-        var button = document.querySelector('button');
-        button.addEventListener('click', function(e) {
-        e.preventDefault();
-        input.classList.toggle('active');
-        })
-        search.addEventListener('focus', function() {
-        input.classList.add('focus');
-        })
+        // var input = document.querySelector('.search-form');
+        // var search = document.querySelector('input')
+        // var button = document.querySelector('button');
+        // button.addEventListener('click', function(e) {
+        // e.preventDefault();
+        // input.classList.toggle('active');
+        // })
+        // search.addEventListener('focus', function() {
+        // input.classList.add('focus');
+        // })
 
-        search.addEventListener('blur', function() {
-        search.value.length != 0 ? input.classList.add('focus') : input.classList.remove('focus');
-        })
+        // search.addEventListener('blur', function() {
+        // search.value.length != 0 ? input.classList.add('focus') : input.classList.remove('focus');
+        // })
     </script>
 </body>
 
