@@ -94,13 +94,6 @@ button {
     background:#fff;
 }
 
-.placesList hr{
-    height: 1px;
-    border: 0;
-    border-top: 1px dotted #5F5F5F;
-    margin:3px 0;
-}
-
 .option{
     display: flex;
     align-items: center;
@@ -171,11 +164,21 @@ button {
     margin-top: 2vh;
     text-align: center;
     height: 70vh;
+    cursor: pointer;
+    margin-right: 30px;
+    padding: 5px;
+    user-select: none;
+    -moz-user-select: none;
 }
 
+#pagination:last-child {
+    margin: 0;
+  }
+
 #pagination a.on{
-    border: 3px solid #ffe2b6;
+    /* border: 3px solid #ffe2b6; */
     border-radius: 100%;
+    background-color: #ffb6c1;
   }
 
 #pagination:hover{
@@ -243,7 +246,7 @@ li {
 }
 
 li:hover{ 
-    box-shadow: 0 0 0 2px #d8b6ff inset; 
+    box-shadow: 0 0 0 2px #b6d6ff inset; 
 }
 
 #menu_wrap::-webkit-scrollbar {

@@ -9,7 +9,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-
+    <script>
+        const c = document.querySelector('.container')
+const indexs = Array.from(document.querySelectorAll('.index'))
+let cur = -1
+indexs.forEach((index, i) => {
+  index.addEventListener('click', (e) => {
+    // clear
+    c.className = 'container'
+    void c.offsetWidth; // Reflow
+    c.classList.add('open')
+    c.classList.add(`i${i + 1}`)
+    if (cur > i) {
+      c.classList.add('flip')
+    }
+    cur = i
+  })
+})
+    </script>
 </head>
 
 <body>
@@ -36,6 +53,7 @@
         </div>
     </header>
 
+    </svg>
     <section>
         <div id="nav_wrap">
             <div id="menu_wrap" class="bg_white">
