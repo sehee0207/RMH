@@ -30,12 +30,17 @@ var infowindow = new kakao.maps.InfoWindow({
 function searchPlaces() {
     const status = document.querySelector("#status");
     const popup = document.querySelector("#geolocation_popup");
+    const menu = document.querySelector("h3");
 
     var keyword = document.getElementById('keyword').value;
 
 
     if (!keyword.includes("맛집")) {
+        menu.innerText = `오늘의 메뉴는 ${keyword}`;
         keyword += " 맛집";
+    } else {
+        let tempMenu = keyword.replace(" 맛집", "");
+        menu.innerText = `오늘의 메뉴는 ${tempMenu}`;
     }
 
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
