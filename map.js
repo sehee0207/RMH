@@ -198,7 +198,7 @@ function displayPlaces(places) {
 function getListItem(index, places) {
 
     var el = document.createElement('li'),
-        itemStr = `<span class="markerbg marker_${(index + 1)}"></span> <div class="info"><h4>${places.place_name}</h4>`;
+        itemStr = `<div class="info"><h4>${places.place_name}</h4>`;
 
     if (places.road_address_name) {
         itemStr +=`도로명 : <span>${places.road_address_name}</span><br>`;
