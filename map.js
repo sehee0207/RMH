@@ -201,11 +201,9 @@ function getListItem(index, places) {
         itemStr = `<span class="markerbg marker_${(index + 1)}"></span> <div class="info"><h4>${places.place_name}</h4>`;
 
     if (places.road_address_name) {
-        itemStr += `<span>${places.road_address_name}</span><br>`;
-    } else {
-        itemStr += `<span>${places.address_name}</span><br>`;
-    }
-
+        itemStr +=`도로명 : <span>${places.road_address_name}</span><br>`;
+        itemStr += `지번 : <span>${places.address_name}</span><br>`;
+    } 
     if (places.phone) {
         itemStr += `<span class="tel">${places.phone}</span>&nbsp&nbsp&nbsp<span class="distance">${places.distance}m</span></div>`;
     } else {
