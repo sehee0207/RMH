@@ -32,19 +32,18 @@ function searchPlaces() {
     const popup = document.querySelector("#geolocation_popup");
     const menu = document.querySelector("h3");
 
-    var keyword = document.getElementById('keyword').value;
-
+    let keyword = document.getElementById('keyword').value;
 
     if (!keyword.includes("맛집")) {
         menu.innerText = `오늘의 메뉴는 ${keyword}`;
+        console.log("includes")
         keyword += " 맛집";
     } else {
         let tempMenu = keyword.replace(" 맛집", "");
         menu.innerText = `오늘의 메뉴는 ${tempMenu}`;
     }
 
-    if (!keyword.replace(/^\s+|\s+$/g, '')) {
-        // alert('키워드를 입력해주세요!');
+    if (!document.getElementById('keyword').value.replace(/^\s+|\s+$/g, '')) {
         status.textContent = "키워드를 입력해주세요."
         popup.classList.toggle('error');
         popup.style.backgroundColor = "ffe2b6";
@@ -139,7 +138,6 @@ function displayPlaces(places) {
             marker = addMarker(placePosition, i),
             itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
 
-
         var line = new kakao.maps.Polyline({
             map: map, // 선을 표시할 지도입니다 
             path: [kakaoUserLocation, placePosition], // 선을 구성하는 좌표 배열입니다 클릭한 위치를 넣어줍니다
@@ -198,7 +196,7 @@ function displayPlaces(places) {
 function getListItem(index, places) {
 
     var el = document.createElement('li'),
-        itemStr = `<div class="info"><h4>${places.place_name}</h4>`;
+        itemStr = `<div class="info" ondblclick="window.open('https://place.map.kakao.com/${places.id}', '_blank');"><h4>${places.place_name}</h4>`;
 
     if (places.road_address_name) {
         itemStr +=`도로명 : <span>${places.road_address_name}</span><br>`;
